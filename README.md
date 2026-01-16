@@ -1,3 +1,4 @@
+# iktruhs.github.io
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,27 +113,6 @@
     <h2>Only One Nation.</h2>
     <p class="about">
     </p>
-  </section>
-
-  <!-- WORK -->
-  <section>
-    <h2>SELECTED WORK</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Clothing Concept 001</h3>
-        <p>Street-oriented design experiment focused on identity and texture.</p>
-      </div>
-
-      <div class="card">
-        <h3>Sound Project</h3>
-        <p>Experimental noise / horror-inspired sound design.</p>
-      </div>
-
-      <div class="card">
-        <h3>Visual Art</h3>
-        <p>Mixed media visuals exploring distortion and discomfort.</p>
-      </div>
-    </div>
   </section>
 
   <!-- CONTACT -->
