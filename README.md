@@ -5,12 +5,7 @@
   <title>iktruhs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <img> 
-<https://imgur.com/Sd3rM6r>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<blockquote class="imgur-embed-pub" lang="en" data-id="Sd3rM6r"><a href="https://imgur.com/Sd3rM6r">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
     }
 
     body {
