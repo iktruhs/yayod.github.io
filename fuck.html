@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pill Choice Navigation</title>
+    <style>
+        /* Container for the background image */
+        .choice-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Adjust based on your image size */
+            margin: 0 auto;
+        }
+
+        /* The background image (the hands) */
+        .hands-bg {
+            width: 100%;
+            display: block;
+        }
+
+        /* Styling for the clickable logos */
+        .logo-link {
+            position: absolute;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-link:hover {
+            transform: scale(1.1); /* Slight pop effect on hover */
+        }
+
+        .logo-link img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Positioning the NBA Styled Logo (Left Hand) */
+        #nba-style {
+            top: 35%;  /* Adjust these percentages to fit perfectly */
+            left: 22%;
+            width: 15%; /* Adjust size of the logo */
+        }
+
+        /* Positioning the NB Logo (Right Hand) */
+        #nb-logo {
+            top: 35%;  /* Adjust these percentages to fit perfectly */
+            right: 22%;
+            width: 15%; /* Adjust size of the logo */
+        }
+    </style>
+</head>
+<body>
+
+<div class="choice-container">
+    <img src="pngkit_red-pill-png_1853770.png" alt="Hands" class="hands-bg">
+
+    <a href="/your-destination-1" class="logo-link" id="nba-style">
+        <img src="IMG_0274.PNG" alt="NBA Styled Logo">
+    </a>
+
+    <a href="/your-destination-2" class="logo-link" id="nb-logo">
+        <img src="Untitled304_20250803163645 (1).PNG" alt="NB Logo">
+    </a>
+</div>
+
+</body>
+</html>
