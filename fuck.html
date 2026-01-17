@@ -72,7 +72,7 @@
     .choice-section {
       position: relative;
       width: 100%;
-      max-width: 800px;
+      max-width: 600px; /* Adjusted for better focus on the hands */
       margin: 40px auto;
       display: flex;
       justify-content: center;
@@ -83,7 +83,7 @@
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+      /* The Hands Image */
     }
 
     .palm-link {
@@ -95,15 +95,15 @@
     /* NB Logo (Left Palm) */
     .left-palm {
       top: 40%;
-      left: 23%;
-      width: 14%;
+      left: 21%;
+      width: 18%;
     }
 
     /* NBA Style Logo (Right Palm) */
     .right-palm {
-      top: 35%;
-      right: 23%;
-      width: 11%;
+      top: 36%;
+      right: 21%;
+      width: 14%;
     }
 
     .palm-link img {
@@ -113,8 +113,8 @@
     }
 
     .palm-link:hover {
-      transform: scale(1.3) translateY(-15px);
-      filter: brightness(1.2) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+      transform: scale(1.3) translateY(-10px);
+      filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
     }
 
     a {
@@ -142,7 +142,7 @@
     }
 
     @media (max-width: 600px) {
-      .choice-section { width: 95%; }
+      .choice-section { width: 90%; }
       body { padding-top: 100px; }
     }
   </style>
@@ -158,7 +158,7 @@
     <h1>yodskini productions — it works</h1>
     
     <div class="choice-section">
-      <img src="https://i.imgur.com/yZEwOFG_d.png?maxwidth=520&shape=thumb&fidelity=high" class="hands-bg" alt="choose">
+      <img src="https://i.imgur.com/yZEwOFG_d.png?maxwidth=520&shape=thumb&fidelity=high" class="hands-bg" alt="hands background">
       
       <a href="https://your-destination-1.com" class="palm-link left-palm">
         <img src="https://i.imgur.com/7jx6IOz_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="NB Logo">
