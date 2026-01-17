@@ -1,68 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pill Choice Navigation</title>
-    <style>
-        /* Container for the background image */
-        .choice-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px; /* Adjust based on your image size */
-            margin: 0 auto;
-        }
+  <meta charset="UTF-8">
+  <title>Choice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-        /* The background image (the hands) */
-        .hands-bg {
-            width: 100%;
-            display: block;
-        }
+    .container {
+      position: relative;
+      width: 600px; /* controls overall size */
+    }
 
-        /* Styling for the clickable logos */
-        .logo-link {
-            position: absolute;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+    .hands {
+      width: 100%;
+      display: block;
+    }
 
-        .logo-link:hover {
-            transform: scale(1.1); /* Slight pop effect on hover */
-        }
+    .nb-link {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
 
-        .logo-link img {
-            width: 100%;
-            height: auto;
-        }
+    .nb-logo {
+      width: 180px;
+      transition: transform 0.2s ease;
+    }
 
-        /* Positioning the NBA Styled Logo (Left Hand) */
-        #nba-style {
-            top: 35%;  /* Adjust these percentages to fit perfectly */
-            left: 22%;
-            width: 15%; /* Adjust size of the logo */
-        }
-
-        /* Positioning the NB Logo (Right Hand) */
-        #nb-logo {
-            top: 35%;  /* Adjust these percentages to fit perfectly */
-            right: 22%;
-            width: 15%; /* Adjust size of the logo */
-        }
-    </style>
+    .nb-logo:hover {
+      transform: scale(1.08);
+    }
+  </style>
 </head>
 <body>
 
-<div class="choice-container">
-    <img src="pngkit_red-pill-png_1853770.png" alt="Hands" class="hands-bg">
+  <div class="container">
+    <!-- Hands image -->
+    <img src="hands.png" alt="Hands holding pills" class="hands">
 
-    <a href="/your-destination-1" class="logo-link" id="nba-style">
-        <img src="IMG_0274.PNG" alt="NBA Styled Logo">
+    <!-- Clickable NB logo -->
+    <a href="https://hockeyhomevideo.com" class="nb-link">
+      <img src="nb-logo.png" alt="NB Logo" class="nb-logo">
     </a>
-
-    <a href="/your-destination-2" class="logo-link" id="nb-logo">
-        <img src="Untitled304_20250803163645 (1).PNG" alt="NB Logo">
-    </a>
-</div>
+  </div>
 
 </body>
 </html>
