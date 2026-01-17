@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>iktruhs</title>
+  <title>yp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- 10-point star favicon -->
@@ -28,16 +28,15 @@
     /* Fixed top logo container */
     .fixed-logo {
       position: fixed;
-      top: -40px; /* push image UP */
+      top: -40px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2000;
       cursor: pointer;
-      pointer-events: auto;
     }
 
     .fixed-logo img {
-      max-width: 400px; /* BIG */
+      max-width: 400px;
       width: 100%;
       height: auto;
       opacity: 0.95;
@@ -70,29 +69,34 @@
       color: #f2f2f2;
       text-decoration: underline;
       font-weight: bold;
-      margin-top: 40px;
     }
 
     a:hover {
       color: #ffcc00;
     }
 
-    /* Comment confirmation */
-    #comment-confirm {
-      display: none;
-      margin-top: 40px;
-      font-size: 18px;
-      opacity: 0;
-      animation: glitch 1.2s ease-in-out;
+    /* Contact section */
+    .contact {
+      margin-top: 120px;
+      padding: 40px 20px 80px;
+      opacity: 0.75;
+      font-size: 0.95rem;
     }
 
-    @keyframes glitch {
-      0% { opacity: 0; transform: translateX(0); }
-      20% { opacity: 1; transform: translateX(-2px); }
-      40% { opacity: 1; transform: translateX(2px); }
-      60% { opacity: 1; transform: translateX(-1px); }
-      80% { opacity: 1; transform: translateX(1px); }
-      100% { opacity: 0; transform: translateX(0); }
+    .contact h2 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .contact a {
+      display: block;
+      margin: 6px 0;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -106,7 +110,7 @@
 
   <!-- Page content wrapper -->
   <div id="page">
-    <h1>iktruhs — it works</h1>
+    <h1>yodskini productions — it works</h1>
     <h1>Fuck You Timothee Chalamet.</h1>
     <h1>I Hope You Have A Very Bad Day.</h1>
     <h1>website still under construction</h1>
@@ -115,8 +119,13 @@
 
     <a href="comments.html">Leave a Comment</a>
 
-    <!-- Confirmation message -->
-    <div id="comment-confirm">Comment sent. Thank you.</div>
+    <!-- Contact section -->
+    <div class="contact">
+      <h2>contact</h2>
+      <a href="mailto:iktruhs@gmail.com">iktruhs@gmail.com</a>
+      <a href="https://instagram.com/iktruhs" target="_blank">instagram @iktruhs</a>
+      <a href="https://twitter.com/kincaidnb" target="_blank">twitter @kincaidnb</a>
+    </div>
   </div>
 
   <script>
@@ -130,13 +139,6 @@
       setTimeout(() => {
         document.body.classList.remove("closing");
       }, 600);
-    }
-
-    // Show confirmation if redirected from comments page
-    if (window.location.hash === "#comment-sent") {
-      const msg = document.getElementById("comment-confirm");
-      msg.style.display = "block";
-      msg.scrollIntoView({ behavior: "smooth" });
     }
   </script>
 
