@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>yayod</title>
+  <title>iktruhs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Favicon: 10-pointed star -->
@@ -31,9 +31,16 @@
       text-align: center;
     }
 
+    /* Header */
     h1 {
       margin-bottom: 20px;
       cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    h1:hover {
+      transform: scale(1.04);
+      opacity: 1;
     }
 
     form {
@@ -81,7 +88,7 @@
 <body>
 
   <!-- Clickable Header -->
-  <h1 onclick="goBack()">yodskini productions — Leave a Comment</h1>
+  <h1 onclick="goBack()">iktruhs — Leave a Comment</h1>
 
   <!-- Comment Form -->
   <form action="https://formsubmit.co/iktruhs@gmail.com" method="POST" onsubmit="showConfirm()">
@@ -105,7 +112,15 @@
 
   <script>
     function goBack() {
-      window.location.href = "https://iktruhs.github.io/";
+      document.body.classList.add("closing");
+
+      setTimeout(() => {
+        window.location.href = "https://iktruhs.github.io/";
+      }, 300);
+
+      setTimeout(() => {
+        document.body.classList.remove("closing");
+      }, 600);
     }
 
     function showConfirm() {
@@ -115,5 +130,4 @@
 
 </body>
 </html>
-
 
