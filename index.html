@@ -6,21 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- 10-point star favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,2 57,30 85,30 60,50 70,78 50,60 30,78 40,50 15,30 43,30' fill='white' stroke='black' stroke-width='2'/></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <polygon points='50,2 57,30 85,30 60,50 70,78 50,60 30,78 40,50 15,30 43,30'
+             fill='white' stroke='black' stroke-width='2'/>
+  </svg>">
 
   <style>
     html {
       scroll-behavior: smooth;
     }
 
-  }
-
-  function toggleMute() {
-    music.muted = !music.muted;
-  }
-</script>
-
-    
     body {
       margin: 0;
       font-family: Verdana, Geneva, sans-serif;
@@ -107,15 +103,45 @@
       text-decoration: underline;
     }
 
-.music-controls {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  gap: 10px;
-  z-index: 3000;
-}
+    /* Music controls */
+    .music-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 3000;
+    }
 
+    .music-controls button {
+      background: #0a0a0a;
+      color: #f2f2f2;
+      border: 2px solid #f2f2f2;
+      padding: 8px 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .music-controls button:hover {
+      background: #f2f2f2;
+      color: #0a0a0a;
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="Dreamin Of The Past.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Music Controls -->
+  <div class="music-controls">
+    <button onclick="togglePlay()">Play / Pause</button>
+    <button onclick="toggleMute()">Mute</button>
+  </div>
 
   <!-- Clickable fixed logo -->
   <div class="fixed-logo" onclick="resetPage()">
@@ -140,10 +166,35 @@
       <a href="https://instagram.com/iktruhs" target="_blank">instagram @iktruhs</a>
       <a href="https://twitter.com/kincaidnb" target="_blank">twitter @kincaidnb</a>
     </div>
+
+    <footer style="margin-bottom: 30px; opacity: 0.7; font-size: 0.9rem;">
+      © 2026 Yodskini Productions. All rights reserved.
+    </footer>
   </div>
 
-
   <script>
+    const music = document.getElementById("bg-music");
+
+    music.volume = 0.6;
+    music.muted = true;
+
+    // Browser-safe autoplay
+    document.addEventListener("click", () => {
+      music.play().catch(() => {});
+    }, { once: true });
+
+    function togglePlay() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    function toggleMute() {
+      music.muted = !music.muted;
+    }
+
     function resetPage() {
       document.body.classList.add("closing");
 
@@ -157,12 +208,5 @@
     }
   </script>
 
-<footer style="margin-top: 40px; margin-bottom: 30px; opacity: 0.7; font-size: 0.9rem;">
-  © 2026 Yodskini Productions. All rights reserved.
-</footer>
-
-
-
 </body>
 </html>
-
