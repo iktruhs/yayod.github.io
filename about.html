@@ -1,1 +1,124 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>yp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 10-point star favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml;utf8,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <polygon points='50,2 57,30 85,30 60,50 70,78 50,60 30,78 40,50 15,30 43,30'
+      fill='white' stroke='black' stroke-width='2'/>
+    </svg>">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Verdana, Geneva, sans-serif;
+      font-weight: 700;
+      background: #0a0a0a;
+      color: #f2f2f2;
+      text-align: center;
+      min-height: 100vh;
+      padding-top: 140px;
+      overflow-x: hidden;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Fixed top logo */
+    .fixed-logo {
+      position: fixed;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2000;
+      cursor: pointer;
+    }
+
+    .fixed-logo img {
+      max-width: 350px;
+      width: 100%;
+      opacity: 0.95;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .fixed-logo img:hover {
+      transform: scale(1.04);
+      opacity: 1;
+    }
+
+    /* Page wrapper */
+    #page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    body.closing #page {
+      transform: scale(0.78);
+      opacity: 0;
+    }
+
+    a {
+      color: #f2f2f2;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ffcc00;
+      text-decoration: underline;
+    }
+
+    /* Bullet list styling */
+    .hate-list {
+      list-style-type: disc;
+      text-align: left;
+      margin: 0 auto;
+      padding-left: 40px;
+      max-width: 600px;
+      font-size: 16px;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+
+    /* Top title styling */
+    .title {
+      font-size: 48px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- LOGO -->
+ <a class="fixed-logo" href="index.html">
+  <img src="https://i.imgur.com/ZzvBYMX.png" alt="iktruhs logo">
+</a>
+
+
+  <!-- PAGE -->
+  <div id="page">
+    <div class="title">about</div>
+
+    <h1>Yodskini Productions was founded in 2022 by Kincaid Binladen and AO.
+       They founded it as the umbrella "company" of Newport Boyz (duo music group founded in 2022 by KB and AO) and 
+       Iktruhs (solo art project by KB).</h1>
+    
+    <div style="height:1200px;"></div>
+  </div>
+</body>
+</html>
