@@ -13,15 +13,85 @@
     </svg>">
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
+      background: #000;
       font-family: Verdana, Geneva, sans-serif;
       font-weight: 700;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* CRT FRAME */
+    .crt-frame {
+      padding: 28px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* CRT SCREEN */
+    .crt-screen {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
       background: #0a0a0a;
+      border-radius: 22px;
+      overflow: hidden;
+
+      transform: perspective(1200px) scale(1.01);
+
+      box-shadow:
+        inset 0 0 80px rgba(0,0,0,0.85),
+        0 0 60px rgba(255,255,255,0.05);
+
+      animation: flicker 0.15s infinite;
+      filter: blur(0.15px) contrast(1.05) saturate(1.1);
+    }
+
+    /* VIGNETTE */
+    .crt-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255,255,255,0.04) 0%,
+        rgba(0,0,0,0.6) 70%,
+        rgba(0,0,0,0.95) 100%
+      );
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* SCANLINES */
+    .crt-screen::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.02) 1px,
+        rgba(0,0,0,0.02) 2px,
+        rgba(0,0,0,0.02) 3px
+      );
+      pointer-events: none;
+      z-index: 5;
+      mix-blend-mode: overlay;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.96; }
+      50% { opacity: 1; }
+      100% { opacity: 0.97; }
+    }
+
+    /* ORIGINAL SITE STYLES */
+    .site {
       color: #f2f2f2;
       text-align: center;
       min-height: 100vh;
@@ -29,6 +99,8 @@
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
+      position: relative;
+      z-index: 2;
     }
 
     .fixed-logo {
@@ -84,22 +156,13 @@
 
     .palm-link {
       position: absolute;
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275),
                   filter 0.3s ease;
       z-index: 10;
     }
 
-    .left-palm {
-      top: 40%;
-      left: 21%;
-      width: 18%;
-    }
-
-    .right-palm {
-      top: 32%;
-      right: 21%;
-      width: 14%;
-    }
+    .left-palm { top: 40%; left: 21%; width: 18%; }
+    .right-palm { top: 32%; right: 21%; width: 14%; }
 
     .palm-link img {
       width: 100%;
@@ -109,11 +172,9 @@
 
     .palm-link:hover {
       transform: scale(1.3) translateY(-10px);
-      filter: brightness(1.2)
-              drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+      filter: brightness(1.2) drop-shadow(0 0 15px rgba(255,255,255,0.5));
     }
 
-    /* CLOCK BELOW HANDS */
     .clock {
       position: absolute;
       bottom: -48px;
@@ -123,8 +184,6 @@
       color: #bdbdbd;
       letter-spacing: 0.6px;
       line-height: 1.3;
-      text-align: center;
-      user-select: none;
       opacity: 0.8;
       z-index: 15;
     }
@@ -140,106 +199,80 @@
       text-decoration: underline;
     }
 
-    .contact {
-      margin-top: 60px;
-      padding-bottom: 120px;
-      opacity: 0.75;
-    }
-
     footer {
       padding: 20px 0;
-      background: #0a0a0a;
       opacity: 0.7;
       font-size: 0.85rem;
-    }
-
-    @media (max-width: 600px) {
-      .choice-section { width: 90%; }
-      body { padding-top: 100px; }
     }
   </style>
 </head>
 
 <body>
 
+<div class="crt-frame">
+<div class="crt-screen">
+<div class="site">
+
   <div class="fixed-logo" onclick="resetPage()">
-    <img src="https://i.imgur.com/ZzvBYMX.png" alt="iktruhs logo">
+    <img src="https://i.imgur.com/ZzvBYMX.png">
   </div>
 
   <div id="page">
     <h1>yodskini productions — it works</h1>
 
     <div class="choice-section">
-      <img
-        src="https://i.imgur.com/RBaOvBU_d.png?maxwidth=520&shape=thumb&fidelity=high"
-        class="background-main"
-        alt="background"
-      >
+      <img src="https://i.imgur.com/RBaOvBU_d.png" class="background-main">
 
       <a href="nb.html" class="palm-link left-palm">
-        <img src="https://i.imgur.com/yZEwOFG_d.png?maxwidth=520&shape=thumb&fidelity=high">
+        <img src="https://i.imgur.com/yZEwOFG_d.png">
       </a>
 
       <a href="irs.html" class="palm-link right-palm">
-        <img src="https://i.imgur.com/0Rkj7LJ_d.png?maxwidth=520&shape=thumb&fidelity=high">
+        <img src="https://i.imgur.com/0Rkj7LJ_d.png">
       </a>
 
-      <!-- CLOCK -->
       <div class="clock" id="clock"></div>
     </div>
 
     <h1>Fuck You Timothee Chalamet.</h1>
     <h1>I Hope You Have A Very Bad Day.</h1>
-    <p>website still under construction</p>
 
     <a href="comments.html">Leave a Comment</a>
     <a href="hatelist.html">Hate List</a>
-
-    <div class="contact">
-      <h2>contact</h2>
-      <a href="mailto:iktruhs@gmail.com">iktruhs@gmail.com</a>
-      <a href="https://instagram.com/iktruhs" target="_blank">instagram @iktruhs</a>
-      <a href="https://twitter.com/kincaidnb" target="_blank">twitter @kincaidnb</a>
-    </div>
   </div>
 
-  <footer>
-    © 2026 Yodskini Productions. All rights reserved.
-  </footer>
+  <footer>© 2026 Yodskini Productions.</footer>
 
-  <script>
-    function resetPage() {
-      document.body.classList.add("closing");
-      setTimeout(() => window.scrollTo(0, 0), 300);
-      setTimeout(() => document.body.classList.remove("closing"), 600);
-    }
+</div>
+</div>
+</div>
 
-    // REALTIME CLOCK
-    const clock = document.getElementById("clock");
+<script>
+  function resetPage() {
+    document.body.classList.add("closing");
+    setTimeout(() => window.scrollTo(0, 0), 300);
+    setTimeout(() => document.body.classList.remove("closing"), 600);
+  }
 
-    function updateClock() {
-      const now = new Date();
+  const clock = document.getElementById("clock");
 
-      const date = now.toLocaleDateString("en-US", {
-        month: "2-digit",
-        day: "2-digit",
-        year: "numeric"
-      });
+  function updateClock() {
+    const now = new Date();
+    const date = now.toLocaleDateString("en-US");
+    const time = now.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    });
+    clock.innerHTML = `${date}<br>${time}`;
+  }
 
-      const time = now.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true
-      });
-
-      clock.innerHTML = `${date}<br>${time}`;
-    }
-
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
 
 </body>
 </html>
+
 
