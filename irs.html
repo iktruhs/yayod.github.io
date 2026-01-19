@@ -15,89 +15,23 @@
     min-height: 100vh;
   }
 
-  .vhs-frame {
-    padding: 28px;
-    background: #000;
-    display: flex;
-    justify-content: center;
-  }
-
-  .vhs-screen {
-    position: relative;
+  video {
     width: 90vw;
     max-width: 760px;
-    aspect-ratio: 4 / 3;
-    background: #000;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow:
-      inset 0 0 100px rgba(0,0,0,0.9),
-      0 0 60px rgba(255,255,255,0.06);
-    animation: flicker 0.15s infinite;
-    filter: blur(0.18px) contrast(1.05) saturate(1.1);
-  }
-
-  .vhs-screen video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* VIGNETTE */
-  .vhs-screen::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(255,255,255,0.04) 0%,
-      rgba(0,0,0,0.6) 65%,
-      rgba(0,0,0,0.95) 100%
-    );
-    pointer-events: none; /* <-- KEY FIX */
-    z-index: 3;
-  }
-
-  /* SCANLINES */
-  .vhs-screen::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.02),
-      rgba(255,255,255,0.02) 1px,
-      rgba(0,0,0,0.03) 2px,
-      rgba(0,0,0,0.03) 3px
-    );
-    pointer-events: none; /* <-- KEY FIX */
-    z-index: 4;
-    mix-blend-mode: overlay;
-  }
-
-  @keyframes flicker {
-    0% { opacity: 0.96; }
-    50% { opacity: 1; }
-    100% { opacity: 0.97; }
+    height: auto;
   }
 </style>
-
 </head>
 <body>
 
-<div class="vhs-frame">
-  <div class="vhs-screen">
-    <video
-      src="https://dl.dropboxusercontent.com/s/fyz2glhrhm6az19jgj6ck/VIDEO-Family-First-Jaundice-and-Autism-6am-News-101110.mp4"
-      autoplay
-      loop
-      muted
-      playsinline
-      controls
-    ></video>
-  </div>
-</div>
+<video
+  src="https://dl.dropboxusercontent.com/s/fyz2glhrhm6az19jgj6ck/VIDEO-Family-First-Jaundice-and-Autism-6am-News-101110.mp4"
+  controls
+  autoplay
+  loop
+  muted
+  playsinline
+></video>
 
 </body>
 </html>
-
