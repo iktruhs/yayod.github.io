@@ -1,4 +1,3 @@
-permalink: /404.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +11,8 @@ permalink: /404.html
       --text: #eaeaf0;
       --accent: #7c7cff;
       --muted: #9aa0b4;
+      --glitch-1: #ff00c1;
+      --glitch-2: #00fff9;
     }
 
     * {
@@ -28,6 +29,7 @@ permalink: /404.html
       align-items: center;
       justify-content: center;
       text-align: center;
+      overflow: hidden;
     }
 
     .container {
@@ -36,60 +38,116 @@ permalink: /404.html
       animation: fadeIn 0.8s ease forwards;
     }
 
+    /* --- Glitch Effect Styles --- */
     h1 {
-      font-size: clamp(4rem, 10vw, 7rem);
+      font-size: clamp(4rem, 15vw, 8rem);
       margin: 0;
-      color: var(--accent);
-      letter-spacing: 0.1em;
+      color: var(--text);
+      position: relative;
+      display: inline-block;
+      letter-spacing: 0.05em;
+    }
+
+    /* Duplicate layers for the glitch */
+    h1::before,
+    h1::after {
+      content: "404";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg); /* Matches background to mask the original */
+    }
+
+    /* Red/Pink Layer */
+    h1::before {
+      left: 2px;
+      text-shadow: -2px 0 var(--glitch-1);
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+
+    /* Cyan Layer */
+    h1::after {
+      left: -2px;
+      text-shadow: -2px 0 var(--glitch-2), 2px 2px var(--glitch-1);
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch-anim2 1s infinite linear alternate-reverse;
     }
 
     h2 {
       margin: 1rem 0 0.5rem;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
     p {
       color: var(--muted);
       margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
     a {
       display: inline-block;
-      padding: 0.75rem 1.5rem;
+      padding: 0.75rem 2rem;
       border-radius: 999px;
       background: var(--accent);
       color: #fff;
       text-decoration: none;
       font-weight: 600;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
     }
 
     a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(124, 124, 255, 0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(124, 124, 255, 0.4);
+      background: transparent;
+      border-color: var(--accent);
     }
 
+    /* --- Animations --- */
+
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scans random horizontal slices of the text */
+    @keyframes glitch-anim {
+      0% { clip: rect(10px, 9999px, 40px, 0); transform: skew(0.5deg); }
+      10% { clip: rect(60px, 9999px, 80px, 0); transform: skew(0.2deg); }
+      20% { clip: rect(20px, 9999px, 30px, 0); transform: skew(0.8deg); }
+      30% { clip: rect(90px, 9999px, 100px, 0); transform: skew(0.1deg); }
+      40% { clip: rect(50px, 9999px, 60px, 0); transform: skew(0.4deg); }
+      50% { clip: rect(10px, 9999px, 20px, 0); transform: skew(0.9deg); }
+      60% { clip: rect(70px, 9999px, 90px, 0); transform: skew(0.2deg); }
+      70% { clip: rect(30px, 9999px, 40px, 0); transform: skew(0.5deg); }
+      80% { clip: rect(80px, 9999px, 100px, 0); transform: skew(0.3deg); }
+      90% { clip: rect(40px, 9999px, 50px, 0); transform: skew(0.7deg); }
+      100% { clip: rect(20px, 9999px, 70px, 0); transform: skew(0.1deg); }
+    }
+
+    @keyframes glitch-anim2 {
+      0% { clip: rect(50px, 9999px, 60px, 0); transform: translateX(2px); }
+      25% { clip: rect(10px, 9999px, 20px, 0); transform: translateX(-2px); }
+      50% { clip: rect(80px, 9999px, 100px, 0); transform: translateX(1px); }
+      75% { clip: rect(30px, 9999px, 40px, 0); transform: translateX(-1px); }
+      100% { clip: rect(60px, 9999px, 70px, 0); transform: translateX(0); }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>404</h1>
-    <h2>Page not found</h2>
+    <h1 data-text="404">404</h1>
+    <h2>System Error: Page Lost</h2>
     <p>
-      The page you’re looking for doesn’t exist or was moved.
-      If you typed the URL manually… yeah, it happens.
+      The coordinates you entered lead to a digital void.<br>
+      Even the best explorers get lost sometimes.
     </p>
-    <a href="/">Take me home</a>
+    <a href="/">Initialize Recovery</a>
   </div>
 </body>
 </html>
